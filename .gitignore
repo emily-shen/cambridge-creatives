@@ -1,0 +1,12 @@
+node_modules
+
+/.cache
+/build
+/public/build
+.env
+.DS_Store
+
+/utils/old_articles.json
+/utils/old_committees.json
+/utils/old_qandas.json
+/utils/relations.json

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-stone-50 text-cc-blue leading-tight font-light;
+  }
+  h1{
+    @apply font-bold text-5xl mb-6
+  }
+  h2{
+    @apply font-bold text-3xl 
+  }
+  h3{
+    @apply font-bold text-2xl 
+  }
+
+}
+

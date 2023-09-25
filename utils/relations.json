@@ -1,0 +1,29 @@
+{"article_filters":{
+  "Hidden Gems":10,
+  "Recent Releases":11,
+  "Essential Viewing":12,
+  "Double Take": 13,
+  "Performance Review":17,
+  "News":18,
+  "Blog":14,
+  "Resource Pack":16,
+  "Article":15
+},
+"interview_filters":{
+  "Director":1,
+  "Producer":2,
+  "Actor":3,
+  "Illustrator":4,
+  "Composer":5,
+  "Screenwriter":7,
+  "Editor":8,
+  "Production Designer":9,
+  "Documentary Filmmaker":10,
+  "Costume Designer":11,
+  "Casting Director":12,
+  "Cinematographer":13,
+  "Art Director":14,
+  "Other":15
+}}
+
+
