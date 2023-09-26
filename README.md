@@ -4,5 +4,5 @@ Switch from production to development to make changes to content types. When you
 
 Then run the following command:
 ```
-npx openapi --input ./full_documentation.json --output ./api --client fetch --name MMKClient --useOptions
+npx openapi --input ./full_documentation.json --output ./api --client fetch --name CCClient --useOptions
 ```
