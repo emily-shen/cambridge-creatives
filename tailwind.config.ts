@@ -21,7 +21,7 @@ export default {
         },
         "cc-blue":{
           DEFAULT:"#384855",
-          contrast:"#4b6d88"
+          contrast:"#648baa"
         },
       
       },

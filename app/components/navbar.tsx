@@ -54,14 +54,14 @@ const NavbarComponent: React.FC<INavbar> = ({ data }) => {
   }, [windowWidth])
 
   const [menuOpen, setMenu] = useState(false)
-  const pattern = /^\/opinions\/[a-z_-]+/
+  const pattern = /^\/opinions\/.+/
   return <>
 
     <div className={
     `${menuOpen ? 'max-h-80 items-start' : 'max-h-14 items-center'} transition-all ease-out duration-300
     ${ pattern.test(route) ? "bg-black" : "bg-cc-teal"}  text-white z-30 lg:items-center
     flex flex-wrap justify-between lg:grid lg:grid-cols-[9rem_1fr] 
-    w-full lg:h-14 py-4 fixed top-0 px-4`}>
+    w-full lg:h-14 py-3 lg:py-0 fixed top-0 px-4`}>
 
       <Link className="order-1" to={"/"}>
         <p className={` tracking-[4px] font-bold leading-[1.1]  ${ pattern.test(route) ? "text-cc-blue-contrast" : "text-cc-blue"}`}>CAMBRIDGE<br/>CREATIVES</p>

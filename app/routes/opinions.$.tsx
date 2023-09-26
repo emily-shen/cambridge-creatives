@@ -11,14 +11,15 @@ import DynamicContent from "~/components/dynamicContent";
 
 
 export const loader = async ({ params }: LoaderArgs) => {
-  const id = params.id;
+  const id = decodeURIComponent(params["*"] ?? "");
 
   const cc = new CCClient({
     BASE:"http://127.0.0.1:1337/api"
   })
   const articles = await cc.article.getArticles({populate: "deep",paginationLimit:1000});
 
-  const selectedArticle = articles.data?.filter(e => e.attributes?.article_url === id);
+  const selectedArticle = articles.data?.filter(e => 
+    e.attributes?.article_url === id || decodeURIComponent(e.attributes?.old_url?.replace("https://cambridgecreatives.org/opinions/","") ?? "") === id  )
 
   if (selectedArticle === undefined || selectedArticle.length === 0) {
     throw new Response(null, {
