@@ -60,7 +60,7 @@ const OpinionsPage = () => {
     <PageHeader title={data.pageData?.page_title ?? ''} description={data.pageData?.page_description ?? ''}/>
     <div className="w-full max-w-5xl mx-auto flex flex-col gap-8 py-12 px-4">
       <CheckboxGroup pageTags={data.pageTags} checkboxes={checkboxes} handleChange={handleChange} />
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filterData?.map((card, index) => {
             return <ArticleCard card={card} flex={false}/>
 

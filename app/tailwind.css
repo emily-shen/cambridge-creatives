@@ -7,7 +7,7 @@
     @apply bg-stone-50 text-cc-blue leading-tight font-light;
   }
   h1{
-    @apply font-bold text-5xl mb-6
+    @apply font-bold text-5xl
   }
   h2{
     @apply font-bold text-3xl 

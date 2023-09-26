@@ -7,7 +7,7 @@ import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 const ArticleCard: React.FC<{card: Article, flex: boolean}> = ({card, flex}) => {
   return <>
   <a href={"/opinions/"+card?.article_url}
-  key={card.article_url} className={`${flex ? "w-80":"max-w-lg"} overflow-hidden hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg flex flex-col gap-2`}>
+  key={card.article_url} className={`${flex ? "w-72 sm:w-80":"max-w-lg"} overflow-hidden hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg flex flex-col gap-2`}>
     <img className="h-36 object-cover object-center mb-4" 
     src={`http://127.0.0.1:1337${card?.image_banner?.data?.attributes?.formats.small ? card?.image_banner?.data?.attributes?.formats.small.url : card?.image_banner?.data?.attributes?.url}`}/>
     <h3 className="px-6">

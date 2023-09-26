@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons';
 import ArticleCard from "~/components/articleCard";
-
+import { TypeAnimation } from 'react-type-animation';
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
@@ -29,6 +29,12 @@ const IndexRoute = () => {
       article_cards.push(article.article?.data?.attributes)
     }})
 
+  const typing_animation: (String | Number)[] = [];
+  data.homepage?.event_option?.forEach(word => {
+    typing_animation.push(word.event_option ?? "")
+    typing_animation.push(1500)
+  })
+
   return <>
   <div className="w-screen text-center">
     <div className="max-h-[100vh] h-fit w-screen overflow-hidden">
@@ -38,12 +44,12 @@ const IndexRoute = () => {
     </div>
     <div className="my-8 px-4">
     <div className="flex flex-col place-items-center max-w-5xl py-16 mx-auto border-b border-stone-300">
-      <h1>{data.homepage?.qanda_title}</h1>
+      <h1 className="mb-6">{data.homepage?.qanda_title}</h1>
       <p className="text-xl">{data.homepage?.qanda_description}</p>
       <div className="flex flex-row flex-wrap gap-6 mt-6 justify-center">
           {data.homepage?.homepage_qandas?.map((card, index) => {
             return <a href={card?.interview?.data?.attributes?.link}
-            key={index} className="w-80 hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg p-8 flex flex-col gap-4">
+            key={index} className="w-full sm:w-80 hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg p-8 flex flex-col gap-4">
               <h3>
                 {card?.interview?.data?.attributes?.interviewee}
               </h3>
@@ -60,40 +66,24 @@ const IndexRoute = () => {
 
     <div className="flex flex-col place-items-center max-w-5xl py-16 mx-auto border-b border-stone-300">
       
-      <h1>{data.homepage?.article_title}</h1>
+      <h1 className="mb-6">{data.homepage?.article_title}</h1>
       <p className="text-xl">{data.homepage?.article_description}</p>
       <div className="flex flex-row flex-wrap gap-6 mt-6 justify-center">
         {article_cards.map( card => 
           <ArticleCard flex={true} card={card}/>
           )}
 
-          {/* {data.homepage?.homepage_articles?.map((card, index) => {
-            return <a href={"/opinions/"+card.article?.data?.attributes?.article_url}
-            key={index} className="w-80 overflow-hidden hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg flex flex-col gap-2">
-              <img className="h-36 object-cover object-center mb-4" 
-              src={`http://127.0.0.1:1337${card?.image_banner?.data?.attributes?.formats.small ? card.article?.data?.attributes?.image_banner?.data?.attributes?.formats.small.url : card.article?.data?.attributes?.image_banner?.data?.attributes?.url}`}/>
-              <h3 className="px-6">
-                {card.article?.data?.attributes?.title}
-              </h3>
-              <p className="px-6 italic text-sm font-bold">{card.article?.data?.attributes?.article_filters?.data?.map(a => {
-                return<>
-                {a.attributes?.tag}
-                </>
-              })}</p>
-              <ReactMarkdown className="text-sm px-6" children={card.article?.data?.attributes?.leader ?? ""} />
 
-              <p className="text-sm px-6"><span className=" font-bold">{card.article?.data?.attributes?.author}</span> on {card.article?.data?.attributes?.publish_date}</p>
-              <div className="px-6 pb-8 grow grid place-content-end">
-                <FontAwesomeIcon className="text-3xl text-cc-blue" icon={faArrowRightLong}/>
-              </div>
-              
-            </a>
-          })} */}
         </div>
     </div>
 
     <div className="flex flex-col place-items-center max-w-5xl py-16 mx-auto ">
-      <h1>Events</h1>
+    <h1 className="mb-6 text-4xl sm:text-5xl"><TypeAnimation
+      sequence={typing_animation}
+      wrapper="span"
+      speed={50}
+      repeat={Infinity}
+    /></h1>
       <p className="text-xl">{data.homepage?.event_description}</p>
     </div>
     </div>

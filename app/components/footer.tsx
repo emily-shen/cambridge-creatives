@@ -43,10 +43,10 @@ const FooterComponent: React.FC<IFooter> = ({ data }) => {
 
   return <>
   <div className="bg-cc-blue w-full">
-    <div className="w-full px-6 sm:mx-auto sm:w-11/12 lg:w-9/12 xl:w-7/12 max-w-8xl  py-16 md:py-24">
+    <div className="w-full px-6 sm:mx-auto max-w-5xl py-16 sm:py-24">
       <div className="w-full flex flex-col md:flex-row border-b border-slate-400 pb-8">
 
-        <div className="w-full md:w-6/12">
+        <div className="w-full sm:w-6/12">
           <FooterSubtitle text="Contact"/>
           <h3 className="text-3xl mt-2 my-6 text-white">Get in touch</h3>
           <FooterLink>
@@ -80,7 +80,7 @@ const FooterComponent: React.FC<IFooter> = ({ data }) => {
           </div>
         </div>
 
-        <div className="md:w-6/12">
+        <div className="sm:w-6/12">
           <FooterSubtitle text="Discover"/>
           <h3 className="text-3xl mt-2 my-6 text-white">Browse content</h3>
           <div className="w-full grid grid-cols-2 max-w-sm">
@@ -104,7 +104,7 @@ const FooterComponent: React.FC<IFooter> = ({ data }) => {
           <FooterSubtitle text="Copyright"/>
           <p className="my-2 text-white">© Copyright {new Date().getFullYear()} Cambridge Creatives</p>
         </div>
-        <div className="md:w-7/12 inline-block md:text-right">
+        <div className="sm:w-7/12 inline-block sm:text-right">
           <FooterSubtitle text="Site design by"/>
           <p className="my-2 text-white">Emily Shen</p>
         </div>

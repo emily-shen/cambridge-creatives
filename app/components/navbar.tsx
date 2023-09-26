@@ -1,6 +1,7 @@
+
 import { Link, useLocation } from "@remix-run/react";
 import { Navbar } from "api";
-import { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import type  {IconDefinition} from "@fortawesome/free-brands-svg-icons";
@@ -57,23 +58,23 @@ const NavbarComponent: React.FC<INavbar> = ({ data }) => {
   return <>
 
     <div className={
-    `${menuOpen ? 'max-h-80 py-4 items-start' : 'max-h-14 items-center'} transition-all ease-out duration-300
+    `${menuOpen ? 'max-h-80 items-start' : 'max-h-14 items-center'} transition-all ease-out duration-300
     ${ pattern.test(route) ? "bg-black" : "bg-cc-teal"}  text-white z-30 lg:items-center
-    grid grid-cols-[9rem_1fr_2rem] lg:grid-cols-[9rem_1fr] 
-    w-full lg:h-14 fixed top-0 px-4`}>
+    flex flex-wrap justify-between lg:grid lg:grid-cols-[9rem_1fr] 
+    w-full lg:h-14 py-4 fixed top-0 px-4`}>
 
-      <Link to={"/"}>
+      <Link className="order-1" to={"/"}>
         <p className={` tracking-[4px] font-bold leading-[1.1]  ${ pattern.test(route) ? "text-cc-blue-contrast" : "text-cc-blue"}`}>CAMBRIDGE<br/>CREATIVES</p>
       </Link>
 
-      <div className={`${menuOpen ? "visible h-full" : "invisible h-14"} lg:visible
-       flex flex-col lg:flex-row lg:justify-between lg:h-full`}>
+      <div className={`${menuOpen ? "visible h-full mt-3" : "invisible h-14"} lg:visible
+      w-full flex flex-col lg:flex-row lg:justify-between lg:h-full order-3 lg:order-2`}>
         <div >
           <ul className="lg:flex h-full">
             {
               data.navbar_links?.map((link, index) => <Fragment key={index}>
                 <li className="font-bold hover:underline underline-offset-8 transition place-self-center">
-                  <Link className="uppercase tracking-widest block w-fit pb-4 lg:py-0 lg:px-4" to={link.link ?? "/"}>
+                  <Link className="uppercase tracking-widest block w-fit pb-4 lg:py-0 lg:px-3" to={link.link ?? "/"}>
                     {link.display_text}
                   </Link>
                 </li>
@@ -96,7 +97,8 @@ const NavbarComponent: React.FC<INavbar> = ({ data }) => {
           </ul>
         </div>
       </div>
-      <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="xl" onClick={ () => setMenu(!menuOpen)} className="visible lg:hidden"/>
+      <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="xl" onClick={ () => setMenu(!menuOpen)} 
+      className="visible lg:hidden order-2"/>
     </div>
   </>;
 }

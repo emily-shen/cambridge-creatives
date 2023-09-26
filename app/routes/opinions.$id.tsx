@@ -7,6 +7,7 @@ import { CCClient, ContentBodyTextComponent, ContentHeadingComponent, ContentQuo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 import ReactMarkdown from 'react-markdown';
+import DynamicContent from "~/components/dynamicContent";
 
 
 export const loader = async ({ params }: LoaderArgs) => {
@@ -37,46 +38,15 @@ const test = () =>{
       <div className="z-20 flex flex-col max-w-3xl drop-shadow-2xl gap-2 text-white text-center p-4">
         <h1 className="mb-2">{data.title}</h1>
         <p className="font-bold text-xl italic">{data.article_filters?.data?.map(tag => tag.attributes?.tag)}</p>
-        <ReactMarkdown children={data.leader}/>
+        <ReactMarkdown children={data.leader ?? ""}/>
 
         <p className="font-bold italic">{data.author}</p>
       </div>
     </div>
-    <div className="w-full max-w-2xl mx-auto flex flex-col gap-8 py-16 px-5">
-    {data.article_body?.map((component, index) => {
-        switch (component.__component){
-          case "content.heading": {
-            const c_data = component as ContentHeadingComponent;
-            return <h2 className="mb-4" key={index}>
-              {c_data.heading}
-            </h2>
-          }
-          case "content.subheading": {
-            const c_data = component as ContentSubheadingComponent;
-            return <h3 className="mb-4" key={index}>
-              {c_data.subheading}
-            </h3>
-          }
-          case "content.quote": {
-            const c_data = component as ContentQuoteComponent;
-            return <div className="mb-12 border-l-[6px] border-cc-teal px-4 "key={index}>
-              <p className="text-lg italic">
-                "{c_data.quote}"
-              </p>
-              <p className="text-right">{c_data.attribution}</p>
-            </div>
-          }
-          case "content.body-text": {
-            const c_data = component as ContentBodyTextComponent;
-            return <React.Fragment key={index}>
-              <ReactMarkdown className="prose-a:text-cc-blue-contrast prose-a:font-bold prose-a:underline text-lg flex flex-col gap-5 leading-relaxed" children={c_data.text ?? ""}/>
-            </React.Fragment>
-
-          }
-
-      }})}
-    <hr className="border-slate-400"/>
+    <div className="w-full max-w-2xl mx-auto flex flex-col py-16 px-5">
+      <DynamicContent content={data.article_body}/>
     </div>
+
   </div>
 </>
 }

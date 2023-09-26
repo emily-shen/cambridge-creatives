@@ -6,6 +6,11 @@ export default {
     fontFamily: {
       sans: ['Roboto', 'sans-serif'],
     },
+    screens:{
+      "lg":"940px",
+      "md":"800px",
+      "sm":"550px"
+    },
     extend: {
       colors:{
         "cc-teal":{
@@ -17,7 +22,8 @@ export default {
         "cc-blue":{
           DEFAULT:"#384855",
           contrast:"#4b6d88"
-        }
+        },
+      
       },
     },
   },

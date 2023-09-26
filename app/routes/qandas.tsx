@@ -58,7 +58,7 @@ const QandaPage = () => {
     <PageHeader title={data.pageData?.page_title ?? ''} description={data.pageData?.page_description ?? ''}/>
     <div className="w-full max-w-5xl mx-auto flex flex-col gap-8 py-12 px-4">
       <CheckboxGroup pageTags={data.pageTags} checkboxes={checkboxes} handleChange={handleChange}/>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filterData?.map((card, index) => {
             return <a href={card?.link}
             key={index} className="max-w-lg hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg p-8 flex flex-col gap-4">
