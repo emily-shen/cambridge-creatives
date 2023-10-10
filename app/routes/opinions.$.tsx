@@ -14,7 +14,7 @@ export const loader = async ({ params }: LoaderArgs) => {
   const id = decodeURIComponent(params["*"] ?? "");
 
   const cc = new CCClient({
-    BASE:"http://127.0.0.1:1337/api"
+    BASE:process.env.STRAPI_API_URL+"/api"
   })
   const articles = await cc.article.getArticles({populate: "deep",paginationLimit:1000});
 

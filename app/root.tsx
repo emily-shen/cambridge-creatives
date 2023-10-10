@@ -19,7 +19,7 @@ export const links: LinksFunction = () => [
 
 export const loader = async () => {
   const cc = new CCClient({
-    BASE: "http://127.0.0.1:1337/api",
+    BASE: process.env.STRAPI_API_URL+"/api",
   });
 
   const response = await cc.navbar.getNavbar({ populate: "deep" });

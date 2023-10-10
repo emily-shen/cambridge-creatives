@@ -11,7 +11,7 @@ import ArticleCard from "~/components/articleCard";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
-    BASE:"http://127.0.0.1:1337/api"
+    BASE:process.env.STRAPI_API_URL+"/api"
   })
   const pageData = await cc.resourcesPage.getResourcesPage({populate: "deep"});
   let articles = await cc.article.getArticles({populate: "deep", paginationLimit:1000});

@@ -41,7 +41,7 @@ const DynamicContent: React.FC<{content:
           case "content.image": {
             const c_data = component as ContentImageComponent;
             return <div className="mb-8" key={index}>
-              <img className="rounded-sm w-full mb-2" src={`http://127.0.0.1:1337${c_data.image?.data?.attributes?.url}`}/>
+              <img className="rounded-sm w-full mb-2" src={`${process.env.STRAPI_API_URL}${c_data.image?.data?.attributes?.url}`}/>
               <p className="text-sm">{c_data.caption}</p>
             </div>
 
@@ -61,7 +61,7 @@ const DynamicContent: React.FC<{content:
                   {c_data.committee_members?.data?.map((member, i) => {
                   return <div className="max-w-lg hover:scale-[102%] transition-transform bg-white rounded-lg shadow-lg p-8 flex flex-col gap-4 text-center" key={`${index}_${i}`}>
                       <img className="w-36 h-36 object-cover rounded-full mx-auto" 
-                      src={`http://127.0.0.1:1337${member.attributes?.photo?.data?.attributes?.formats.small ? member.attributes?.photo?.data?.attributes?.formats.small.url:member.attributes?.photo?.data?.attributes?.url}`}/>
+                      src={`${process.env.STRAPI_API_URL}${member.attributes?.photo?.data?.attributes?.formats.small ? member.attributes?.photo?.data?.attributes?.formats.small.url:member.attributes?.photo?.data?.attributes?.url}`}/>
                     <div>
                       <p className="font-bold text-lg">{member.attributes?.name} <span>{member.attributes?.pronouns}</span></p>
                       <p>{member.attributes?.role}</p>

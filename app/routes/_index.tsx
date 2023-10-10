@@ -11,7 +11,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
-    BASE:"http://127.0.0.1:1337/api"
+    BASE:process.env.STRAPI_API_URL+"/api"
   })
   const homepageData = await cc.homepage.getHomepage({populate: "deep"});
 
@@ -39,7 +39,7 @@ const IndexRoute = () => {
   <div className="w-screen text-center">
     <div className="max-h-[100vh] h-fit w-screen overflow-hidden">
       <video autoPlay muted loop className="object-cover h-full w-full">
-        <source  src={"http://127.0.0.1:1337"+data.homepage?.hero?.data?.attributes?.url}></source>
+        <source  src={process.env.STRAPI_API_URL+data.homepage?.hero?.data?.attributes?.url}></source>
       </video>
     </div>
     <div className="my-8 px-4">
