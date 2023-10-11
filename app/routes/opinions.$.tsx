@@ -35,7 +35,8 @@ const test = () =>{
   return<>
   <div className="w-screen">
     <div className="h-screen w-screen overflow-hidden bg-black grid place-content-center">
-      <img className="z-10 absolute top-0 left-0 opacity-50 w-full h-full object-cover" src={"http://127.0.0.1:1337"+data.image_banner.data?.attributes?.url}/>
+      <img className="z-10 absolute top-0 left-0 opacity-50 w-full h-full object-cover" 
+      src={"https://admin.cambridgecreatives.org"+data.image_banner.data?.attributes?.url}/>
       <div className="z-20 flex flex-col max-w-3xl drop-shadow-2xl gap-2 text-white text-center p-4">
         <h1 className="mb-2">{data.title}</h1>
         <p className="font-bold text-xl italic">{data.article_filters?.data?.map(tag => tag.attributes?.tag)}</p>

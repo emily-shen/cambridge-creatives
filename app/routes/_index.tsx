@@ -39,7 +39,7 @@ const IndexRoute = () => {
   <div className="w-screen text-center">
     <div className="max-h-[100vh] h-fit w-screen overflow-hidden">
       <video autoPlay muted loop className="object-cover h-full w-full">
-        <source  src={process.env.STRAPI_API_URL+data.homepage?.hero?.data?.attributes?.url}></source>
+        <source  src={"https://admin.cambridgecreatives.org"+data.homepage?.hero?.data?.attributes?.url}></source>
       </video>
     </div>
     <div className="my-8 px-4">
