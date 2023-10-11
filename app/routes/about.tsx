@@ -8,7 +8,7 @@ import DynamicContent from "~/components/dynamicContent";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
-    BASE:process.env.STRAPI_API_URL+"/api"
+    BASE:"https://admin.cambridgecreatives.org"+"/api"
   })
   const aboutData = await cc.aboutPage.getAboutPage({populate: "deep"});
 

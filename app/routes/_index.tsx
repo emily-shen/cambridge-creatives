@@ -11,7 +11,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
-    BASE:process.env.STRAPI_API_URL+"/api"
+    BASE:"https://admin.cambridgecreatives.org"+"/api"
   })
   const homepageData = await cc.homepage.getHomepage({populate: "deep"});
 

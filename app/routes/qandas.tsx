@@ -12,7 +12,7 @@ import { CheckboxGroup, useInterviewCheckbox } from "~/components/checkbox";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const cc = new CCClient({
-    BASE:process.env.STRAPI_API_URL+"/api"
+    BASE:"https://admin.cambridgecreatives.org"+"/api"
   })
   const pageData = await cc.qAndAPage.getQAndAPage({populate: "deep"});
   const qandaData = await cc.interview.getInterviews({populate: "deep", paginationLimit:1000});
